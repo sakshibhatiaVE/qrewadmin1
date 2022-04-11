@@ -1,0 +1,63 @@
+<div class=" content">
+  <div class=" row">
+    <div class="col-md-12 add-user">
+      <button type="button" class="btn btn-danger btn-sm" routerLink="/adduser">Add New User</button>
+    </div>
+    <div class="col-md-12">
+
+  <!-- Employee list -->
+  <table class="table table-bordered" *ngIf="Employee.length > 0">
+    <thead class="table-success">
+      <tr>
+        <!-- <th scope="col">Employee ID</th> -->
+        <!-- <th scope="col">Name</th>
+        <th scope="col">Email</th>
+        <th scope="col">Designation</th>
+        <th scope="col">Phone No</th>
+        <th scope="col center">Update</th> -->
+        <th scope="col">User Name</th>
+        <th scope="col">Email</th>
+        <th scope="col">First Name</th>
+        <th scope="col">Last Name</th>
+        <th scope="col center">Address</th>
+        <th scope="col">City</th>
+        <th scope="col">Country</th>
+        <th scope="col">Postal Codee</th>
+        <th scope="col">About Me</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr *ngFor="let employee of Employee; let i = index">
+        <!-- <th scope="row">{{ employee._id }}</th> -->
+        <td>{{ employee.name }}</td>
+        <td>{{ employee.email }}</td>
+        <!-- <td>{{ employee.designation }}</td>
+        <td>{{ employee.phoneNumber }}</td> -->
+        <td>{{ employee.fname }}</td>
+        <td>{{ employee.lname }}</td>
+        <td>{{ employee.address }}</td>
+        <td>{{ employee.city }}</td>
+        <td>{{ employee.country }}</td>
+        <td>{{ employee.postalcode }}</td>
+        <td>{{ employee.about }}</td>
+        <td class="text-center edit-block">
+          <span class="edit" [routerLink]="['/edituser/', employee._id]">
+            <button type="button" class="btn btn-success btn-sm">
+              <img src="/assets/img/edit-logo.png" alt="image">
+            </button>
+          </span>
+          <span class="delete" (click)="removeEmployee(employee, i)">
+            <button type="button" class="btn btn-danger btn-sm">
+              <img src="/assets/img/delete-logo.png" alt="image">
+            </button>
+          </span>
+        </td>
+      </tr>
+    </tbody>
+  </table>
+
+  </div>
+  </div>
+  </div>
+
+  
