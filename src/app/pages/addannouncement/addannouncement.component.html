@@ -1,0 +1,155 @@
+
+<div class=" content">
+    <div class=" row">
+      <div class=" col-md-12 announcement_date">
+        <div class=" card">
+            <div class=" card-header register-employee"><h4 class=" title">Add Announcement</h4></div>
+          <div class=" card-body">
+            <form [formGroup]="addannouncementForm" (ngSubmit)="onSubmit()">
+                <div class="row">
+                    <div class="col-md-12">
+                      <div class="form-group">
+                        <label> Announcement </label>
+                        <textarea
+                            class="form-control"
+                            cols="80"
+                            placeholder="Here can be your Announcement"
+                            rows="4"
+                            value=""
+                            formControlName="addannouncement">
+                        </textarea>
+                        <!-- <input
+                          class="form-control"
+                          placeholder="Announcement"
+                          type="text"
+                          value="announcement"
+                          formControlName="addannouncement"
+                        /> -->
+                        <!-- error -->
+                        <div
+                        class="invalid-feedback"
+                        *ngIf="submitted && myForm['addannouncement'].errors?.['required']"
+                    >
+                    Addannouncement is required.
+                    </div>
+                      </div>
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="col-md-12">
+                      <div class="form-group">
+                        <label> Begin </label>
+                        <div class="input-group col-md-3">
+                          <!-- <input class="form-control" formControlName="addannouncementbegin" placeholder="yyyy-mm-dd" name="dp1" [(ngModel)]="newItem.EndTime"  ngbDatepicker #d1="ngbDatepicker" required>
+                          <div class="input-group-addon"  (click)="d1.toggle(); openDatepicker(d1)" >
+                              <i class="fa fa-calendar" aria-hidden="true"></i>
+                          </div> -->
+                          <input
+                      class="form-control"
+                      placeholder="Company"
+                      type="date"
+                      value=""
+                      formControlName="addannouncementbegin"
+                    />
+                      </div>
+                      <div
+                        class="invalid-feedback"
+                        *ngIf="submitted && myForm['addannouncementbegin'].errors?.['required']"
+                    >
+                Announcement Begin date is required.
+                    </div>
+                        <!-- <div class="input-group col-md-3">
+                            <input class="form-control" placeholder="yyyy-mm-dd" formControlName="addannouncementbegin" type="text"
+                                   name="dp" [(ngModel)]="model" ngbDatepicker #d="ngbDatepicker" value="21211">
+                            <button class="btn btn-outline-secondary calendar" (click)="d.toggle()" type="button"></button>
+                          </div> -->
+                        <!-- <input
+                          class="form-control"
+                          placeholder="Announcement"
+                          type="text"
+                          value=""
+                          formControlName="addannouncementbegin"
+                        /> -->
+                        <!-- error -->
+                        <!-- <div
+                        class="invalid-feedback"
+                        *ngIf="submitted && myForm['addnnouncementbegin'].errors?.['required']"
+                    >
+                Announcement Begin date is required.
+                    </div> -->
+                      </div>
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="col-md-12">
+                      <div class="form-group">
+                        <label> End </label>
+                        <div class="input-group col-md-3">
+                          <!-- <input class="form-control" formControlName="addannouncementend" placeholder="yyyy-mm-dd" name="dp2" [(ngModel)]="newItem.StartTime"  ngbDatepicker #d2="ngbDatepicker" #d3 required>
+                          <div class="input-group-addon" (click)="d2.toggle(); openDatepicker(d2)" >
+                              <i class="fa fa-calendar" aria-hidden="true"></i>
+                          </div> -->
+                          <input
+                      class="form-control"
+                      placeholder="Company"
+                      type="date"
+                      value=""
+                      formControlName="addannouncementend"
+                    />
+                      </div>
+                      <!-- error -->
+                        <div
+                        class="invalid-feedback"
+                        *ngIf="submitted && myForm['addannouncementend'].errors?.['required']"
+                    >
+                    Announcement End date is required.
+                    </div>
+                        <!-- <div class="input-group col-md-3">
+                            <input class="form-control" placeholder="yyyy-mm-dd" formControlName="addannouncementend" type="text"
+                                   name="dp" [(ngModel)]="model" ngbDatepicker #d="ngbDatepicker"  value="222222222">
+                            <button class="btn btn-outline-secondary calendar" (click)="d.toggle()" type="button"></button>
+                          </div> -->
+                        <!-- <input
+                          class="form-control"
+                          placeholder="Announcement"
+                          type="text"
+                          value=""
+                          formControlName="addannouncementend"
+                        /> -->
+                        <!-- error -->
+                        <!-- <div
+                        class="invalid-feedback"
+                        *ngIf="submitted && myForm['addannouncementend'].errors?.['required']"
+                    >
+                    Announcement End date is required.
+                    </div> -->
+                      </div>
+                    </div>
+                </div>
+              <div class="form-group col-md-3">
+                <button class="btn-success btn-lg btn-block" type="submit">
+                  Add Announcement
+                </button>
+              </div>
+            </form>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- <div class="input-group" style="margin-top:50px">
+      <input class="form-control" placeholder="yyyy-mm-dd" name="dp1" [(ngModel)]="newItem.EndTime"  ngbDatepicker #d1="ngbDatepicker" required>
+      <div class="input-group-addon"  (click)="d1.toggle(); openDatepicker(d1)" >
+          <i class="fa fa-calendar" aria-hidden="true"></i>
+      </div>
+  </div>
+
+  <div class="input-group">
+      <input class="form-control" placeholder="yyyy-mm-dd" name="dp2" [(ngModel)]="newItem.StartTime"  ngbDatepicker #d2="ngbDatepicker" #d3 required>
+      <div class="input-group-addon" (click)="d2.toggle(); openDatepicker(d2)" >
+          <i class="fa fa-calendar" aria-hidden="true"></i>
+      </div>
+  </div> -->
+
+    </div>
+  

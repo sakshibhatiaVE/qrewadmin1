@@ -1,0 +1,47 @@
+<div class=" content">
+    <div class=" row">
+      <div class="col-md-12 add-user">
+        <button type="button" class="btn btn-danger btn-sm" routerLink="/addannouncement">Add New Announcement</button>
+      </div>
+      <div class="col-md-12">
+  
+    <!-- Employee list -->
+    <table class="table table-bordered" *ngIf="Announcement.length > 0">
+      <thead class="table-success">
+        <tr>
+          <th scope="col">Announcement</th>
+          <th scope="col">Begin Date</th>
+          <th scope="col">End Date</th>
+          <th scope="col"></th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr [ngClass]="{ 'text-danger': odd, 'text-primary': even }" *ngFor="let announcement of Announcement  | slice: startIndex:endIndex;
+        let odd = odd;
+        let even = even;; let i = index">
+          <!-- <th scope="row">{{ employee._id }}</th> -->
+          <td>{{ announcement.addannouncement }}</td>
+          <td>{{ announcement.addannouncementbegin }}</td>
+          <td>{{ announcement.addannouncementend }}</td>
+          <td class="text-center edit-block edit-announ">
+            <span class="edit" [routerLink]="['/editannouncement/', announcement._id]">
+              <button type="button" class="btn btn-success btn-sm">
+                <img src="/assets/img/edit-logo.png" alt="image">
+              </button>
+            </span>
+            <span class="delete" (click)="removeAnnouncement(announcement, i)">
+              <button type="button" class="btn btn-danger btn-sm">
+                <img src="/assets/img/delete-logo.png" alt="image">
+              </button>
+            </span>
+          </td>
+        </tr>
+      </tbody>
+    </table>
+  
+    </div>
+    </div>
+    </div>
+  
+    
+  

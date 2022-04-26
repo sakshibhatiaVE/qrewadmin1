@@ -1,0 +1,235 @@
+
+<div class=" content">
+    <div class=" row">
+      <div class=" col-md-12 addprod-section">
+        <div class=" card">
+            <div class=" card-header cwo-head"><h4 class=" title">Create Work Order</h4></div>
+          <div class="row">
+            <div class="col-md-5 create-work pr-md-1" >
+                <form [formGroup]="addprodselectForm" (ngSubmit)="onSubmit()">
+                <div class="accord-list" *ngFor="let item of data;let i = index;">
+                    <button class="accordion" (click)="toggleAccordian($event, i)"> {{item.parentName}} </button>
+                    <div class="panel" hide="!item.isActive" *ngIf="item.parentName ==='Date'">
+                        <div class="row addprod-date">
+                            <div class="input-group col-md-6 prod-date-start">
+                                <input
+                                    class="form-control"
+                                    placeholder="Start Date"
+                                    type="date"
+                                    value=""
+                                    formControlName="prodstart"
+                                    (change)="SendDataonChange1($event)"
+                                />
+                            </div>
+                            <div class="input-group col-md-6 prod-date-end">
+                                <input
+                                    class="form-control"
+                                    placeholder="Company"
+                                    type="date"
+                                    value=""
+                                    formControlName="prodend"
+                                    (change)="SendDataonChange2($event)"
+                                />
+                            </div>
+                            
+                        </div>
+                        
+                        
+                        <!-- <label>
+                            Date
+                            <input [owlDateTimeTrigger]="dt6" [owlDateTime]="dt6">
+                            <owl-date-time [pickerType]="'calendar'"
+                                           [startView]="'multi-years'" #dt6></owl-date-time>
+                        </label>
+                        <label>
+                            Date
+                            <input [owlDateTimeTrigger]="dt6" [owlDateTime]="dt6">
+                            <owl-date-time [pickerType]="'calendar'"
+                                           [startView]="'year'" #dt6></owl-date-time>
+                        </label> -->
+                      <!-- <p *ngFor="let child of item.childProperties"> {{child.propertyName}} </p> -->
+                    </div>
+                    <div class="row panel" hide="!item.isActive" *ngIf="item.parentName ==='Time'">
+                        <!-- <div class="row">
+                            <div class="input-group col-md-6 prod-time-start">
+                                <input type="time" id="appt" name="appt" min="09:00" max="18:00" required value="05:35">
+                            </div>
+                            <div class="input-group col-md-6 prod-time-end">
+                                <input type="time" id="appt" name="appt" min="09:00" max="18:00" required value="05:35">
+                            </div>
+                        </div>
+                        <div class="row time-img">
+                            <div class="col-md-6">
+                                <img src="/assets/img/time.png" alt="image">
+                            </div>
+                            <div class="col-md-6">
+                                <img src="/assets/img/time.png" alt="image">
+                            </div>
+                            <div class="row time-bt">
+                                <button class="time-btn"><h5 class="time-h5">Add More Info</h5></button>
+                            </div>
+                        </div> -->
+                        <div class=" col-md-6 start-time">
+                        <mat-form-field appearance="outline">
+                            <input 
+                              type="text"
+                              matInput
+                              [ngxMatTimepicker]="timepicker"
+                              format="12"
+                              [required]="required"
+                              readonly
+                              [formControl]="formControlItem"
+                              formControlName="starttime"
+                            />
+                          
+                            <mat-icon
+                              matPrefix
+                              *ngIf="formControlItem.value && !formControlItem.disabled && !required"
+                              (click)="onClear($event)"
+                            >
+                              close
+                            </mat-icon>
+                          
+                            <mat-icon
+                              matSuffix
+                              *ngIf="!formControlItem.disabled"
+                              (click)="openFromIcon(timepicker)"
+                              ></mat-icon
+                            >
+                          </mat-form-field>
+                          
+                          <ngx-mat-timepicker #timepicker [appendToInput]="true" (timeChanged)="onChangeHour1($event)"></ngx-mat-timepicker>
+                        </div>
+                        <div class="col-md-6 start-end">
+                            <mat-form-field appearance="outline">
+                                <input
+                                  type="text"
+                                  matInput
+                                  [ngxMatTimepicker]="timepicker1"
+                                  format="12"
+                                  [required]="required"
+                                  readonly
+                                  [formControl]="formControlItem"
+                                  formControlName="endtime"
+                                />
+                              
+                                <mat-icon
+                                  matPrefix
+                                  *ngIf="formControlItem.value && !formControlItem.disabled && !required"
+                                  (click)="onClear($event)"
+                                >
+                                  close
+                                </mat-icon>
+                              
+                                <mat-icon
+                                  matSuffix
+                                  *ngIf="!formControlItem.disabled"
+                                  (click)="openFromIcon(timepicker1)"
+                                  ></mat-icon
+                                >
+                              </mat-form-field>
+                              
+                              <ngx-mat-timepicker #timepicker1 [appendToInput]="true" (timeChanged)="onChangeHour2($event)"></ngx-mat-timepicker>
+                              
+                            </div>
+                    </div>
+                        <div class="panel" hide="!item.isActive" *ngIf="item.parentName ==='Tags'">
+                            <h4>Select a Catagory</h4>
+                            <div class="row">
+                                
+                                    <div class="col-md-3 form-check" *ngFor="let cat of categories">
+                                        <input
+                                          class="form-check-input"
+                                          (change)="onChange(cat.name, $event.target.checked)"
+                                          name="{{ cat.name }}"
+                                          type="checkbox"
+                                          id="{{ cat.name }}"
+                                        />
+                                        <label class="form-check-label" for="{{ cat.name }}">
+                                          {{ cat.name }}
+                                        </label>
+                                      </div>
+                                      <!-- {{ emailFormArray | json }} -->
+                            </div>
+                      </div>
+
+                      <!-- Code for Resource-->
+                      <div class="panel" hide="!item.isActive" *ngIf="item.parentName ==='Resources'">
+                        <!-- <input atp-time-picker type="time" atp-time-picker value="20:55"/>
+
+                        <input type="time" atp-time-picker value="20:55" theme="dark" locale='fa' start='18:30' end="23:00" arrowStyle="{'background': 'red', 'color': 'white'}"/> -->
+                      
+                    </div>
+                      <!-- End Code for Resource-->
+                      <div class="panel" hide="!item.isActive" *ngIf="item.parentName ==='Assign Jobs'">
+                        
+                      </div>
+                </div>
+                <div class="form-group col-md-3 add-prod-submit">
+                    <button class="btn-success btn-lg btn-block" type="submit">
+                      Add Production
+                    </button>
+                  </div>
+                </form>
+
+            </div>
+
+
+            <div class="prod-section2 col-md-6 pr-md-1">
+                <div class="col-md-12 addproddeatil">
+                    <div class=" card-header production-details">
+                        <h5 class=" title">Production Details</h5>
+                        <form [formGroup]="addproddisplayForm" (ngSubmit)="onSubmit()">
+                            <div class="cool-md-12 prod-list-selected" *ngFor="let item of data;let i = index;" >
+                                <div class="cold-md-12" *ngIf="item.parentName ==='Date'">
+                                    <div class="col-md-12 prod-list-content" *ngIf="startdate.length > 0">
+                                        Start Date: {{startdate}}
+                                    </div>
+                                    <div class="col-md-12 prod-list-content" *ngIf="starttime.length > 0">
+                                        Start Time: {{starttime}}
+                                    </div>
+                                    <div class="col-md-12 prod-list-content" *ngIf="starttime.length > 0 || startdate.length > 0">
+                                        End Date:  {{enddate}}
+                                        <!-- End Time: {{endtime}} -->
+                                    </div>
+                                    <div class="col-md-12 prod-list-content" *ngIf="endtime.length > 0 || starttime.length > 0">
+                                        End Time:  {{endtime}}
+                                    </div>
+                                </div>
+                                <div class="cold-md-12" *ngIf="item.parentName ==='Time'">
+                                    <!-- <div class="col-md-12" *ngIf="endtime.length > 0">
+                                        End Date:  {{enddate}}
+                                    </div>
+                                    <div class="col-md-12"  *ngIf="endtime.length > 0">
+                                        End Time: {{endtime}}
+                                    </div>
+                                    <div class="col-md-12">
+                                        End Time:
+                                    </div> -->
+                                </div>
+                                <div class="cold-md-12" *ngIf="item.parentName ==='Tags'">
+                                    Selected Tags: {{emailFormArray | json}}
+                                </div>
+                                <div class="cold-md-12" *ngIf="item.parentName ==='Resources'">
+                                    Resources:
+                                </div>
+                                <div class="cold-md-12" *ngIf="item.parentName ==='Assign Jobs'">
+                                    Assign Jobs: 
+                                    
+                                </div>
+                            </div>
+                        </form>
+                    </div>
+                    
+                </div>
+            </div>
+          </div>
+          
+        </div>
+      </div>
+    </div>
+
+    </div>
+  
+
+    
