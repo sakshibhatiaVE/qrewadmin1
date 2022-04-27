@@ -1,0 +1,45 @@
+<div class=" content">
+    <div class=" row">
+<div class="col-md-6">
+      <div class="col-md-12 add-user">
+        <button type="button" class="btn btn-danger btn-sm" routerLink="/addrole">Add New Role</button>
+      </div>
+      <div class="col-md-12">
+  
+    <!-- Employee list -->
+    <table class="table table-bordered" *ngIf="Role.length > 0">
+      <thead class="table-success">
+        <tr class="rol-head">
+          <th scope="col">Roles</th>
+          <th scope="col"></th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr *ngFor="let role of Role | slice: startIndex:endIndex;
+        let odd = odd;
+        let even = even; let i = index" [ngClass]="{ 'text-danger': odd, 'text-primary': even }">
+          <!-- <th scope="row">{{ employee._id }}</th> -->
+          <td class="role_cont">{{ role.rolename }}</td>
+          <td class="text-center edit-block edit-role">
+            <span class="edit edit_{{role._id}}" [routerLink]="['/editrole/', role._id]">
+              <button type="button" class="btn btn-success btn-sm">
+                <img src="/assets/img/edit-logo.png" alt="image">
+              </button>
+            </span>
+            <span class="delete" (click)="removeRole(role, i)">
+              <button type="button" class="btn btn-danger btn-sm">
+                <img src="/assets/img/delete-logo.png" alt="image">
+              </button>
+            </span>
+          </td>
+        </tr>
+      </tbody>
+    </table>
+  
+    </div>
+</div>
+    </div>
+    </div>
+  
+    
+  

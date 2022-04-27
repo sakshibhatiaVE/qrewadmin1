@@ -1,0 +1,217 @@
+
+<div class=" content">
+  <div class=" row">
+    <div class=" col-md-12">
+      <div class=" card">
+        <div class=" card-header register-employee"><h4 class=" title">Update Profile</h4></div>
+        <div class=" card-body">
+          <form [formGroup]="edituserForm" (ngSubmit)="onSubmit()">
+            <input type="hidden" value="">
+            <div class=" row">
+              <div class="col-md-6 pr-md-1">
+                <div class="form-group">
+                  <label> Username </label>
+                  <input
+                    class="form-control"
+                    placeholder="Username"
+                    type="text"
+                    value="michael23"
+                    formControlName="name"
+                  />
+                  <!-- error -->
+                  <div class="invalid-feedback"
+                      *ngIf="submitted && myForm['name'].errors?.['required']"
+                      >
+                      Name is required.
+                  </div>
+                </div>
+              </div>
+              <div class="col-md-6 pl-md-1">
+                <div class="form-group">
+                  <label for="exampleInputEmail1"> Email address </label>
+                  <input
+                    class="form-control"
+                    placeholder="mike@email.com"
+                    type="email"
+                    formControlName="email"
+                  />
+                  <!-- error -->
+                      <div
+                      class="invalid-feedback"
+                      *ngIf="submitted && myForm['email'].errors?.['required']"
+                  >
+                      Enter your email.
+                  </div>
+                  <div
+                      class="invalid-feedback"
+                      *ngIf="submitted && myForm['email'].errors?.['pattern']"
+                  >
+                      Enter valid email.
+                  </div>
+                </div>
+              </div>
+            </div>
+            <div class="row">
+              <div class="col-md-4 pr-md-1">
+                <div class="form-group">
+                  <label> First Name </label>
+                  <input
+                    class="form-control"
+                    placeholder="Company"
+                    type="text"
+                    value="Mike"
+                    formControlName="fname"
+                  />
+                  <!-- error -->
+                      <div
+                      class="invalid-feedback"
+                      *ngIf="submitted && myForm['fname'].errors?.['required']"
+                  >
+                      First Name is required.
+                  </div>
+                </div>
+              </div>
+              <div class="col-md-4 pl-md-1">
+                <div class="form-group">
+                  <label> Last Name </label>
+                  <input
+                    class="form-control"
+                    placeholder="Last Name"
+                    type="text"
+                    value="Andrew"
+                    formControlName="lname"
+                  />
+                  <!-- error -->
+                  <div
+                  class="invalid-feedback"
+                  *ngIf="submitted && myForm['lname'].errors?.['required']"
+                    >
+                  Last Name is required.
+              </div>
+                </div>
+              </div>
+            </div>
+            <div class="row">
+              <div class="col-md-12">
+                <div class="form-group">
+                  <label> Address </label>
+                  <input
+                    class="form-control"
+                    placeholder="Home Address"
+                    type="text"
+                    value="Bld Mihail Kogalniceanu, nr. 8 Bl 1, Sc 1, Ap 09"
+                    formControlName="address"
+                  />
+                  <!-- error -->
+                  <div
+                  class="invalid-feedback"
+                  *ngIf="submitted && myForm['address'].errors?.['required']"
+              >
+                  Address is required.
+              </div>
+                </div>
+              </div>
+            </div>
+            <div class="row">
+              <div class="col-md-4 pr-md-1">
+                <div class="form-group">
+                  <label> City </label>
+                  <input
+                    class="form-control"
+                    placeholder="City"
+                    type="text"
+                    value="Lucknow"
+                    formControlName="city"
+                  />
+                  <!-- error -->
+                  <div
+                  class="invalid-feedback"
+                  *ngIf="submitted && myForm['city'].errors?.['required']"
+              >
+                  City is required.
+              </div>
+                </div>
+              </div>
+              <div class="col-md-4 px-md-1">
+                <div class=" form-group">
+                  <label> Country </label>
+                  <input
+                    class=" form-control"
+                    placeholder="Country"
+                    type="text"
+                    value="Andrew"
+                    formControlName="country"
+                  />
+                  <!-- error -->
+                      <div
+                      class="invalid-feedback"
+                      *ngIf="submitted && myForm['country'].errors?.['required']"
+                  >
+                  Country is required.
+                  </div>
+                </div>
+              </div>
+              <div class="col-md-4 pl-md-1">
+                <div class="form-group">
+                  <label> Postal Code </label>
+                  <input
+                    class="form-control"
+                    placeholder="ZIP Code"
+                    type="text"
+                    formControlName="postalcode"
+                  />
+                  <!-- error -->
+                  <div
+                  class="invalid-feedback"
+                  *ngIf="submitted && myForm['postalcode'].errors?.['required']"
+              >
+                  Enter your phone number.
+              </div>
+              <div
+                  class="invalid-feedback"
+                  *ngIf="submitted && myForm['postalcode'].errors?.['pattern']"
+              >
+                  Enter Numbers Only
+              </div>
+                </div>
+              </div>
+            </div>
+            <div class="row">
+              <div class="col-md-8">
+                <div class="form-group">
+                  <label> About Me </label>
+                  <textarea
+                    class="form-control"
+                    cols="80"
+                    placeholder="Here can be your description"
+                    rows="4"
+                    value="Mike"
+                    formControlName="about"
+                  >
+                      Lamborghini Mercy, Your chick she so thirsty, I'm in that two seat Lambo.
+                  </textarea
+                  >
+                  <!-- error -->
+                  <div
+                  class="invalid-feedback"
+                  *ngIf="submitted && myForm['about'].errors?.['required']"
+              >
+                  Name is required.
+              </div>
+                </div>
+              </div>
+            </div>
+            <div class="form-group col-md-3">
+              <button class="btn-success btn-lg btn-block" type="submit">
+                Update
+              </button>
+            </div>
+          </form>
+        </div>
+        <!-- <div class=" card-footer">
+          <button class=" btn btn-fill btn-danger" type="submit">Save</button>
+        </div> -->
+      </div>
+    </div>
+  </div>
+</div>
